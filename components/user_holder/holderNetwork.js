@@ -26,8 +26,7 @@ router.post("/", (req, res) => {
 router.get("/", (req, res) => {
   if(req.body.tipo === 'Admin'){
 
-    holderController
-    .getHolders()
+    holderController.getHolders()
     .then((list) => {
       response.success(req, res, list, 200);
     })
