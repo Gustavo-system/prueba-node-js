@@ -22,5 +22,5 @@ const myschema = new Schema({
   date: Date,
 });
 
-const holderModel = mongoose.model("holder", myschema);
+const holderModel = mongoose.model("holders", myschema);
 module.exports = holderModel;
