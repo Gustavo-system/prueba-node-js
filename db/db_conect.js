@@ -1,7 +1,5 @@
 const db_mongo = require('mongoose');
 
-// const uri = "mongodb+srv://db_gus_user:1234567890@cluster0.cr7zd.mongodb.net/db_prueba";
-
 db_mongo.Promise = global.Promise;
 
 const connect = async (uri) =>{
