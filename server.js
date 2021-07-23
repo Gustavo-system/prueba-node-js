@@ -18,4 +18,4 @@ try {
   console.log(`no se puede inciar el servidor ${error}`);
 }
 
-module.exports = app;
+// module.exports = app;
