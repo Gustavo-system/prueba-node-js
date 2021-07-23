@@ -16,7 +16,7 @@ router.post("/", (req, res) => {
     holderController
       .createHolders(email, password, name, last_name, age, cuenta, tipo)
       .then((fullHolder) => {
-        response.success(req, res, fullHolder, 200);
+        response.success(req, res, JSON.parse(fullHolder), 200);
       })
       .catch((err) => {
         console.error(`[holderNetwork] Error in register ${err}`);

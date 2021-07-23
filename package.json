@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server"
+    "start": "SET NODE_ENV=production & node server"
   },
   "keywords": [
     "prueba"
@@ -13,6 +13,7 @@
   "author": "solar gaona gustavo",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.13.3",
     "nodemon": "^2.0.12"

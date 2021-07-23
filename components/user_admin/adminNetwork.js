@@ -12,7 +12,7 @@ router.post("/", (req, res) => {
     adminController
       .createAdmin(email, password, name, tipo)
       .then((fullAdmin) => {
-        response.success(req, res, fullAdmin, 200);
+        response.success(req, res, JSON.parse(fullAdmin), 200);
       })
       .catch((err) => {
         console.error(`[adminNetwork] Error in register admin ${err}`);

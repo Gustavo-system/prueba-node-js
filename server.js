@@ -1,6 +1,7 @@
 const express = require('express');
 const router = require("./network/routes");
 const db = require('./db/db_conect');
+require('dotenv').config();
 
 const app = express();
 const port = 3000;
@@ -11,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 try {
   router(app);
-  app.listen(port, () => {
+  app.listen(process.env.PORT, () => {
     console.log(`servidor escuchando en http://localhost:${port}`);
   });
 } catch (error) {
