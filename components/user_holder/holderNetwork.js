@@ -28,7 +28,7 @@ router.get("/", (req, res) => {
 
     holderController.getHolders()
     .then((list) => {
-      response.success(req, res, list, 200);
+      response.success(req, res, JSON.parse(list), 200);
     })
     .catch((error) => {
       console.error(`[holderNetwortk] Error in request ${error}`);
