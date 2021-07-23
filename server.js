@@ -1,18 +1,18 @@
 const express = require('express');
 const router = require("./network/routes");
 const db = require('./db/db_conect');
-require('dotenv').config();
+const config = require('./config/index');
 
 const app = express();
-db(`mongodb+srv://db_gus_user:1234567890@cluster0.cr7zd.mongodb.net/db_prueba`)
+db(`mongodb+srv://${config.bd_user}:${config.bd_password}@${config.db_host}/${config.db_name}`)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 try {
   router(app);
-  app.listen(process.env.PORT, () => {
-    console.log(`servidor escuchando en http://localhost:${process.env.PORT}`);
+  app.listen(config.port, () => {
+    console.log(`servidor escuchando en http://localhost:${config.port}`);
   });
 } catch (error) {
   console.log(`no se puede inciar el servidor ${error}`);
