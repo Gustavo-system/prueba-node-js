@@ -19,7 +19,7 @@ router.post("/", (req, res) => {
 
     transerfsController.createTranfer(transmiter, receiver, total)
       .then((fullTransfer) => {
-        response.success(req, res, JSON.parse(fullTransfer), 200);
+        response.success(req, res, fullTransfer, 201);
       })
       .catch((err) => {
         console.error(`[transfersNetwork] Error in register transfer ${err}`);

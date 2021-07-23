@@ -4,9 +4,7 @@ const adminController = require("./adminController");
 const router = express.Router();
 
 router.post("/", (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
-    const name = req.body.name;
+    const {email,password,name} = req.body;
     const tipo = req.body.tipo || 'Admin';
 
     adminController
@@ -30,6 +28,6 @@ router.get("/", (req, res) => {
         console.error(`[adminNetwortk] Error in request ${error}`);
         response.error(req, res, "Error", 500);
       });
-  });
+});
 
 module.exports = router;

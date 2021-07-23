@@ -52,13 +52,53 @@ describe('Endpoint /api/user_holder', ()=>{
             .expect(401, callback)
     });
 
-    // it('DELETE / response with 200:Ok, delete holder you are Admin', callback => {
-    //     supertest(app)
-    //         .delete('/api/user_holder/60fa0ab3ea82fd332cbbc36c')
-    //         .set('Accept','application/json')
-    //         .send({"tipo":"Admin"})
-    //         .expect(200, callback)
-    // });
+    it('DELETE / response with 200:Ok, delete holder you are Admin', callback => {
+        supertest(app)
+            .delete('/api/user_holder/60fa0ab3ea82fd332cbbc36c')
+            .set('Accept','application/json')
+            .send({"tipo":"Admin"})
+            .expect(200, callback)
+    });
 
+
+});
+
+
+describe('Endpoint /api/auth_login', () => {
+    it('POST / response with 200:ok', callback => {
+        supertest(app)
+            .post('/api/auth_login')
+            .set('Accept','application/json')
+            .send(
+                {
+                    "email":"admin@admin.com",
+                    "password":"admin123",
+                }
+            )
+            .expect(200, callback)
+    });
+});
+
+describe('Endpoint /api/transfers', () => {
+    it('POST / response with 201:created', callback => {
+        supertest(app)
+            .post('/api/transfers')
+            .set('Accept','application/json')
+            .send(
+                {
+                    "transmiter":"admin@admin.com",
+                    "receiver":"holder@holder.com",
+                    "total":1500
+                }
+            )
+            .expect(201, callback)
+    });
+
+    it('GET / response with 200:ok, response transfers data', callback => {
+        supertest(app)
+            .get('/api/transfers')
+            .set('Accept','application/json')
+            .expect(200, callback)
+    });
 
 });
