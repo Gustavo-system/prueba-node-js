@@ -4,7 +4,6 @@
   "description": "Prueba Roca Funnels",
   "main": "server.js",
   "scripts": {
-    "test": "mocha tests/api.test.js --exit",
     "start": "SET NODE_ENV=production & node server"
   },
   "keywords": [
