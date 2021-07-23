@@ -49,8 +49,7 @@ router.patch("/:id", (req, res) => {
 
   if(req.body.tipo === 'Admin'){
 
-    holderController
-    .updateHolder(id, name, last_name, age)
+    holderController.updateHolder(id, name, last_name, age)
     .then((data) => {
       response.success(req, res, data, 200);
       console.log("ok, update success");
