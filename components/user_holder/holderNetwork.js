@@ -12,18 +12,17 @@ router.post("/", (req, res) => {
   const cuenta = req.body.cuenta || 0;
   const tipo = req.body.tipo || 'holder';
 
-  if(tipo === 'Admin'){
-    holderController
-      .createHolders(email, password, name, last_name, age, cuenta, tipo)
+  if(req.query.tipo === 'Admin'){
+    holderController.createHolders(email, password, name, last_name, age, cuenta, tipo)
       .then((fullHolder) => {
-        response.success(req, res, JSON.parse(fullHolder), 200);
+        response.success(req, res, fullHolder, 201);
       })
       .catch((err) => {
         console.error(`[holderNetwork] Error in register ${err}`);
         response.error(req, res, "Invalid data", 400);
       });
   }else{
-    response.error(req. res, "UNAUTHORIZED", 401)
+    response.error(req, res, "UNAUTHORIZED", 401)
   }
 
 });
@@ -53,7 +52,7 @@ router.patch("/:id", (req, res) => {
   const last_name = req.body.last_name;
   const age = req.body.age;
 
-  if(req.quey.tipo === 'Admin'){
+  if(req.body.tipo === 'Admin'){
 
     holderController
     .updateHolder(id, name, last_name, age)
@@ -75,18 +74,17 @@ router.patch("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
   const id = req.params.id;
 
-  if(req.quey.tipo === 'Admin'){
+  if(req.body.tipo === 'Admin'){
 
-    holderController
-    .deleteHolder(id)
-    .then((respons) => {
-      response.success(req, res, "delete holder success", 200);
-      console.log(`delete holder success`);
-    })
-    .catch((err) => {
-      console.error(`[holderNetwork] holder not delete ${err}`);
-      response.error(req, res, error, 500);
-    });
+    holderController.deleteHolder(id)
+      .then((respons) => {
+        response.success(req, res, "delete holder success", 200);
+        console.log(`delete holder success`);
+      })
+      .catch((err) => {
+        console.error(`[holderNetwork] holder not delete ${err}`);
+        response.error(req, res, error, 500);
+      });
 
   }else{
     response.error(req, res, "UNAUTHORIZED", 401);

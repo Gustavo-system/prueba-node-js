@@ -17,3 +17,5 @@ try {
 } catch (error) {
   console.log(`no se puede inciar el servidor ${error}`);
 }
+
+module.exports = app;
