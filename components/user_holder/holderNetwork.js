@@ -4,11 +4,7 @@ const holderController = require("./holderController");
 const router = express.Router();
 
 router.post("/", (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
-  const name = req.body.name;
-  const last_name = req.body.last_name;
-  const age = req.body.age;
+  const {email,password,name,last_name,age} = req.body;
   const cuenta = req.body.cuenta || 0;
   const tipo = req.body.tipo || 'holder';
 
