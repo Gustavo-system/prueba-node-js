@@ -14,7 +14,6 @@ const createHolders = (email, password, name, last_name, age, cuenta, tipo) => {
 
   console.log(HOLDER);
   return new Promise((resolve, reject) => {
-    // comprobar si el administrador
     if (!email || !password || !name || !last_name || !age) {
       console.error("[holderController] Invalid data");
       reject("Invalida data");
@@ -28,7 +27,6 @@ const createHolders = (email, password, name, last_name, age, cuenta, tipo) => {
 // get holders
 const getHolders = () => {
   return new Promise((resolve, reject) => {
-    // comprobar si el administrador
     resolve(holderStore.list());
   });
 };
@@ -37,7 +35,6 @@ const getHolders = () => {
 const updateHolder = (id, name, last_name, age) => {
   return new Promise(async (resolve, reject) => {
     if (!name || !last_name || !age) {
-      // comprobar si el administrador
       return reject("Invalid Data");
     } else {
       return await resolve(holderStore.update(id, name, last_name, age));
@@ -49,7 +46,6 @@ const updateHolder = (id, name, last_name, age) => {
 const deleteHolder = (id) => {
   return new Promise(async (resolve, reject) => {
     if (id) {
-      // comprobar si el administrador
       return resolve(holderStore.delete(id));
     } else {
       console.error("[holderControler] invalida data, id undefaind");
