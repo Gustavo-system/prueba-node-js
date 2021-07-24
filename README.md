@@ -4,7 +4,7 @@ prueba node js RF
 ## install 
 npm install
 
-## start serve
+## start server
 nodemon server
 
 ## start test
@@ -31,7 +31,7 @@ the method POST requires syntax
 }
 ```
 
-/api/user_holder
+## /api/user_holder
 methods GET, POST, UPDATE and DELETE
 need in body request 
 
@@ -54,11 +54,10 @@ POST syntax -> need a params for query: api/user_holder?tipo=Admin
 }
 ```
                 
-/api/transfers
-method GET and POST
+## /api/transfers
+methods GET and POST
 
 POST need syntax ->
-
 ```
 {
   "transmiter":"mail",
