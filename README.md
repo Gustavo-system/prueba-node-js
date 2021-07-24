@@ -2,39 +2,46 @@
 prueba node js RF
 
 ## install 
-npm i
+npm install
 
 ## start serve
-nodemos server
+nodemon server
+
+## start test
+npm test
 
 # Endpoints
 ## /api/auth_login
-require email and posword in body request
-methos https is post
-
-## /api/user_admin
-method post and get 
-the method POST requires syntax 
+method POST require email and possword in body request
 ```
 {
   "email":"email@email.com",
   "password":"password"
 }
+```
 
+## /api/user_admin
+method POST and GET 
+the method POST requires syntax 
+```
+{
+  "email":"email@email.com",
+  "password":"password"
+  "name":"name"
+}
 ```
 
 /api/user_holder
-methos GET, UPDATE, DELETE
+methods GET, POST, UPDATE and DELETE
 need in body request 
 
 ```
 {
   "tipo":"Admin"
 }
-
 ```
 
-POST sintax -> need a params for query -> api/user_holder?tipo=Admin
+POST syntax -> need a params for query: api/user_holder?tipo=Admin
 
 ```
 {
@@ -45,13 +52,12 @@ POST sintax -> need a params for query -> api/user_holder?tipo=Admin
   "age":number,
   "cuenta":number
 }
-
 ```
                 
 /api/transfers
-methos GET, POST
+method GET and POST
 
-POST sintax ->
+POST need syntax ->
 
 ```
 {
@@ -59,5 +65,4 @@ POST sintax ->
   "receiver":"mail",
   "total":number
 }
-
 ```
